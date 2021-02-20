@@ -2,11 +2,50 @@
 
 body {
   background-color: #2c3e50;
+  font-family: "Source Code Pro", monospace;
+  overflow: hidden;
 }
 
-.clock-all {
+.clock {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #aaaaaa;
+  border-radius: 50%;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 32px;
+}
+
+.clock-face {
+  position: relative;
   width: 100%;
-  margin-top: 300px;
+  height: 100%;
+  transform: translateY(-3px);
+}
+
+.hand {
+  width: 50%;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hand {
+  background: #a4ebf3
+}
+
+.min-hand {
+  background: #fc5a3d
+}
+
+.second-hand {
+  background: #f4f9f9
 }
 
 .button {
@@ -22,29 +61,28 @@ h4 {
 }
 
 li {
-  display: flex;
-  margin-right: 25px;
-  text-align: center;
-  font-size: 30px;
+  font-size: 23px;
+  font-family: "Source Code Pro", monospace;
 }
 
-li button {
-  background: none;
-  border: none;
-  color: #539732;
-  font-size: 30px;
-  margin-left: 10px;
-  outline: none;
+li>savebtn {
+  margin-left: 13px;
   cursor: pointer;
 }
-li button:nth-child(3) {
-  background: none;
-  border: none;
-  color: #9e2626;
-  font-size: 30px;
-  margin-left: 10px;
-  outline: none;
+
+li>savebtn:hover {
+  font-size: 20px;
+  color: white;
+}
+
+li>btn {
+  margin-left: 13px;
   cursor: pointer;
+}
+
+li>btn:hover {
+  font-size: 20px;
+  color: white;
 }
 
 .form,
@@ -60,6 +98,7 @@ li button:nth-child(3) {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -69,10 +108,22 @@ li button:nth-child(3) {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
   animation: fadeIn 0.5s linear;
+}
+
+.back-black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .time {
@@ -82,36 +133,11 @@ li button:nth-child(3) {
   font-family: "Source Code Pro", monospace;
   font-size: 40px;
 }
-.dolist_form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.Doinput {
-  padding: 5px;
-  font: bold 0.6em sans-serif;
-  border: 3px solid #f81069;
-  border-radius: 5px;
-  background: none;
-  cursor: pointer;
-  outline: none;
-  font-family: "Source Code Pro", monospace;
-  color: skyblue;
-  font-size: 20px;
-}
 
 .Doinput::placeholder {
   text-align: center;
   color: #9d78f1;
   font-size: 20px;
-}
-
-.dolist {
-  font-family: "Source Code Pro", monospace;
-  color: #dbae9a;
 }
 
 .Nainput {
@@ -144,4 +170,67 @@ li button:nth-child(3) {
   justify-content: flex-end;
   font-family: "Source Code Pro", monospace;
   color: greenyellow;
+}
+
+.doInput {
+  padding: 5px;
+  font: bold 0.6em sans-serif;
+  border: 3px solid #f81069;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  font-family: "Source Code Pro", monospace;
+  color: skyblue;
+  font-size: 20px;
+}
+
+.doInput::placeholder {
+  text-align: center;
+  color: #cac2df;
+  font-size: 20px;
+}
+
+.doing-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.doing-blank {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px;
+  width: 100%;
+}
+
+.doing-b {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Source Code Pro", monospace;
+  color: #f3ef11;
+  width: 100%;
+}
+
+.finish-b {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Source Code Pro", monospace;
+  color: #e93a49;
+  width: 100%;
+}
+
+.doing-h {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.break-h {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

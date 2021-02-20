@@ -1,26 +1,31 @@
-/*html에 class = js-clock과 h1의 정보를 불러옴, "."를 붙이고 안붙이고의 차이는
-클레스명인 것과 아닌 것의 차이가 있다.*/
-const clockContainer = document.querySelector(".js-clock"),
-  clockTitle = clockContainer.querySelector("h1");
+const secondHand = document.querySelector('.second-hand');
+  const minsHand = document.querySelector('.min-hand');
+  const hourHand = document.querySelector('.hour-hand');
 
-  function getTime(){
-      //날짜와 시간을 불러오는 부분//
-      const date = new Date();
-      const minutes = date.getMinutes();
-      const hours = date.getHours();
-      const seconds = date.getSeconds();
-      //사간을 index.html의 h1에 넣는 부분//
-      /*ternary operator(삼항연산자)를 썼다. 이유는 "59"초 다음 "1"이
-      "01"로 나타내주기 위해서 이다.*/
-      clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${minutes 
-        < 10 ? `0${minutes}` : minutes}:${
-          seconds < 10 ? `0${seconds}`: seconds}`;
+  function setDate() {
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    const secondsDegrees = ((seconds / 60) * 360) + 90;
+    /*60초에 1분 즉, 60초가 되었을때에는 360도를 돌아야 됨.
+      seconds가 60초가 되었을때, 60/60은 1 1 곱하기 360은 360이 된다. 
+      즉 360도를 돈다.
+      플러스 90은 console.log를 해보면 알겠지만 00초가 다 되었지만 초침은 아직 
+        반밖에 돌지 못했다. 그리하여 90도를 더 더하여 180도가 되게 하였다.*/
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+    const mins = now.getMinutes();
+    const minsDegrees = ((mins / 60) * 360) + 90;
+    /* 위의 초와 동일*/
+    minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+    const hour = now.getHours();
+    const hourDegrees = ((hour / 12) * 360) + 90;
+    /*시간에서 다른 점은 1시간씩 총 12시간이 흐르면 360을 돌아야 된다는 점이다.*/
+    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+  
   }
 
-function init(){
-    //getTime의 함수를 불러옴//
-    getTime();
-    //시간을 실시간으로 불러옴, 1초간격으로 불러옴.//
-    setInterval(getTime, 1000);
-}
-init();
+  setInterval(setDate, 1000);
+
+  setDate();

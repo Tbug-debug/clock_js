@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>something</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css"
-  </head>
-  <body>
-    <span class="js-weather weather"></span>
-    <div class="clock-all">
-      <div class="js-clock">
-        <h1 class="time">00:00</h1>
-      </div>
-      <div class="time">
-        <form class="js-form form">
-          <input class="Nainput" type="text" placeholder="What is your name?" />
-        </form>
-        <h4 class="js-greetings greetings"></h4>
-      </div>
-      <div class="dolist_form">
-        <form class="js-toDoForm">
-          <input class="Doinput" type="text" placeholder="Write a to do" />
-        </form>
-        <ul class="js-toDoList dolist"></ul>
+
+<head>
+  <title>something</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="back-black"></div>
+  <span class="js-weather weather"></span>
+  <div class="clock-all">
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
       </div>
     </div>
-    <script src="clock.js"></script>
-    <script src="gretting.js"></script>
-    <script src="todo.js"></script>
-    <script src="background.js"></script>
-    <script src="weather.js"></script>
-  </body>
+    <div class="time">
+      <form class="js-form form">
+        <input class="Nainput" type="text" placeholder="What is your name?" />
+      </form>
+      <h4 class="js-greetings greetings"></h4>
+    </div>
+    <div class="doing-box">
+      <form class="jsform">
+        <input class="doInput" type="text" placeholder="Write a to do" />
+      </form>
+      <div class="doing-blank">
+        <div class="doing-b">
+          <h2 class="doing-h">&#60;While/&#62;</h2>
+          <div>
+            <ul class="doing"></ul>
+          </div>
+        </div>
+        <div class="finish-b">
+          <h2 class="break-h">&#60;Break/&#62;</h2>
+          <div>
+            <ul class="finish"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="clock.js"></script>
+  <script src="gretting.js"></script>
+  <script src="todo.js"></script>
+  <script src="background.js"></script>
+  <script src="weather.js"></script>
+</body>
+
 </html>
